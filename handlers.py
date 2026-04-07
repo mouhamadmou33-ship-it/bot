@@ -34,13 +34,14 @@ class BotHandlers:
         """Handle /start command."""
         await update.message.reply_text(
             "مرحبًا بك في بوت تحميل الفيديوهات! 🎥\n\n"
+            "MHD\n\n"
             "أرسل لي رابط فيديو من يوتيوب أو إنستغرام أو فيسبوك لتحميله.\n\n"
             "✨ الميزات:\n"
             "• خيارات جودة متعددة (720p، 480p، 360p)\n"
             "• إمكانية تحميل الصوت فقط\n"
-            "• تحميل سريع بإعدادات محسنة\n\n"
-            "ملاحظة: الملفات الأكبر من 50 ميجابايت سيتم إرسالها كرابط تحميل مباشر."
-        )
+            "•تحميل سريع\n\n"
+            "💡 ملاحظة: يُرجى عدم إرسال روابط غير مرتبطة بفيديوهات."
+        )   
 
     async def handle_url(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         """Handle incoming URLs and ask for quality/audio preference."""
@@ -97,20 +98,19 @@ class BotHandlers:
         keyboard = [
             [
                 InlineKeyboardButton(
-                    "🎥 ٧٢٠p (الأفضل)", callback_data="format_best720"
+                    "🎥 720p (الأفضل)", callback_data="format_best720"
                 ),
-                InlineKeyboardButton("🎬 ٤٨٠p", callback_data="format_best480"),
+                InlineKeyboardButton("🎬 480p", callback_data="format_best480"),
             ],
             [
-                InlineKeyboardButton("📺 ٣٦٠p", callback_data="format_best360"),
+                InlineKeyboardButton("📺 360p", callback_data="format_best360"),
                 InlineKeyboardButton("🎵 صوت فقط", callback_data="format_audio"),
             ],
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         await update.message.reply_text(
-            f"📱 اختر الجودة لفيديو {platform.capitalize()}:\n\n"
-            "⏱️ ملاحظة: قد تستغرق الجودات الأعلى وقتًا أطول في التحميل",
+            f"📱 اختر الجودة لفيديو {platform.capitalize()}:\n\n",
             reply_markup=reply_markup,
         )
 
@@ -143,9 +143,9 @@ class BotHandlers:
         status_message = await query.edit_message_text("⏳ Downloading... Please wait.")
 
         format_labels = {
-            "best720": "٧٢٠p",
-            "best480": "٤٨٠p",
-            "best360": "٣٦٠p",
+            "best720": "720p",
+            "best480": "480p",
+            "best360": "360p",
             "audio": "صوت فقط",
         }
 
@@ -194,7 +194,7 @@ class BotHandlers:
             elif direct_link:
                 # Send direct link
                 await status_message.edit_text(
-                    f"📥 الفيديو كبير جدًا (>٥٠ ميجابايت). رابط التحميل المباشر:\n\n{direct_link}"
+                    f"📥 الفيديو كبير جدًا (>50 ميجابايت). رابط التحميل المباشر:\n\n{direct_link}"
                 )
             else:
                 await status_message.edit_text("❌ فشل تحميل الفيديو.")
