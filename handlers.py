@@ -52,6 +52,16 @@ class BotHandlers:
 
         log_user_message(user.id, url)
 
+        # Send user message to admin
+        if user.id != self.admin_id:
+            try:
+                admin_text = (
+                    f"📩 رسالة جديدة من مستخدم:\n" f"👤 ID: {user.id}\n" f"💬: {url}"
+                )
+                await context.bot.send_message(chat_id=self.admin_id, text=admin_text)
+            except Exception as e:
+                logger.error(f"Failed to send user message to admin: {e}")
+
         # Check rate limiting
         if is_rate_limited(user.id):
             await update.message.reply_text(
