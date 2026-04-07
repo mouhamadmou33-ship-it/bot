@@ -1,6 +1,7 @@
 import inspect
 import logging
 import os
+import json
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
     ContextTypes,
@@ -14,6 +15,23 @@ from utils import is_valid_url, detect_platform, is_rate_limited
 import asyncio
 
 logger = logging.getLogger(__name__)
+
+# --- متابعة صفحة فيسبوك ---
+FACEBOOK_PAGE_URL = "https://www.facebook.com/share/1BWj4b2vUB/"
+ALLOWED_USERS_FILE = "allowed_users.json"
+
+
+def load_allowed_users():
+    try:
+        with open(ALLOWED_USERS_FILE, "r", encoding="utf-8") as f:
+            return set(json.load(f))
+    except Exception:
+        return set()
+
+
+def save_allowed_users(users_set):
+    with open(ALLOWED_USERS_FILE, "w", encoding="utf-8") as f:
+        json.dump(list(users_set), f)
 
 
 class BotHandlers:
@@ -32,20 +50,68 @@ class BotHandlers:
 
     async def start_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         """Handle /start command."""
+        user_id = update.effective_user.id
+        allowed_users = load_allowed_users()
+        if user_id not in allowed_users:
+            keyboard = [
+                [
+                    InlineKeyboardButton(
+                        "✅ تمت المتابعة، ابدأ الاستخدام", callback_data="fb_followed"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "🔗 متابعة الصفحة على فيسبوك", url=FACEBOOK_PAGE_URL
+                    )
+                ],
+            ]
+            reply_markup = InlineKeyboardMarkup(keyboard)
+            await update.message.reply_text(
+                "👋 قبل استخدام البوت يجب متابعة صفحتنا على فيسبوك:\n"
+                f"{FACEBOOK_PAGE_URL}\n\n"
+                "بعد المتابعة اضغط الزر بالأسفل 'تمت المتابعة' ليتم تفعيل البوت لك.",
+                reply_markup=reply_markup,
+            )
+            return
         await update.message.reply_text(
             "مرحبًا بك في بوت تحميل الفيديوهات! 🎥\n\n"
             "MHD\n\n"
+            "تحميل دون علامة مائيه"
             "أرسل لي رابط فيديو من يوتيوب أو إنستغرام أو فيسبوك لتحميله.\n\n"
             "✨ الميزات:\n"
             "• خيارات جودة متعددة (720p، 480p، 360p)\n"
             "• إمكانية تحميل الصوت فقط\n"
             "•تحميل سريع\n\n"
             "💡 ملاحظة: يُرجى عدم إرسال روابط غير مرتبطة بفيديوهات."
-        )   
+        )
 
     async def handle_url(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         """Handle incoming URLs and ask for quality/audio preference."""
         user = update.effective_user
+        user_id = user.id
+        allowed_users = load_allowed_users()
+        if user_id not in allowed_users:
+            keyboard = [
+                [
+                    InlineKeyboardButton(
+                        "✅ تمت المتابعة، ابدأ الاستخدام", callback_data="fb_followed"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "🔗 متابعة الصفحة على فيسبوك", url=FACEBOOK_PAGE_URL
+                    )
+                ],
+            ]
+            reply_markup = InlineKeyboardMarkup(keyboard)
+            await update.message.reply_text(
+                "👋 قبل استخدام البوت يجب متابعة صفحتنا على فيسبوك:\n"
+                f"{FACEBOOK_PAGE_URL}\n\n"
+                "بعد المتابعة اضغط الزر بالأسفل 'تمت المتابعة' ليتم تفعيل البوت لك.",
+                reply_markup=reply_markup,
+            )
+            return
+
         url = update.message.text.strip()
 
         # Log user message for admin panel
@@ -117,11 +183,22 @@ class BotHandlers:
     async def handle_quality_selection(
         self, update: Update, context: ContextTypes.DEFAULT_TYPE
     ):
-        """Handle quality selection callback."""
+        """Handle quality selection callback and متابعة فيسبوك callback."""
         query = update.callback_query
         user = query.from_user
 
-        # Get format type from callback data
+        # زر متابعة فيسبوك
+        if query.data == "fb_followed":
+            allowed_users = load_allowed_users()
+            allowed_users.add(user.id)
+            save_allowed_users(allowed_users)
+            await query.answer("تم التفعيل! يمكنك الآن استخدام البوت.")
+            await query.edit_message_text(
+                "✅ تم تفعيل البوت لك! أرسل الآن رابط الفيديو للتحميل."
+            )
+            return
+
+        # باقي الكول باك (اختيار الجودة)
         format_type = query.data.replace("format_", "")
 
         # Get stored URL
@@ -216,5 +293,5 @@ class BotHandlers:
         return [
             CommandHandler("start", self.start_command),
             MessageHandler(filters.TEXT & ~filters.COMMAND, self.handle_url),
-            CallbackQueryHandler(self.handle_quality_selection, pattern="^format_"),
+            CallbackQueryHandler(self.handle_quality_selection),
         ]
