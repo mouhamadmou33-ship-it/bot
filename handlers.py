@@ -55,8 +55,16 @@ class BotHandlers:
         # Send user message to admin
         if user.id != self.admin_id:
             try:
+                username = user.username or "(لا يوجد)"
+                first_name = user.first_name or ""
+                last_name = user.last_name or ""
+                full_name = (first_name + " " + last_name).strip()
                 admin_text = (
-                    f"📩 رسالة جديدة من مستخدم:\n" f"👤 ID: {user.id}\n" f"💬: {url}"
+                    f"📩 رسالة جديدة من مستخدم:\n"
+                    f"👤 الاسم: {full_name}\n"
+                    f"🔗 اسم المستخدم: @{username}\n"
+                    f"🆔 المعرف الرقمي: {user.id}\n"
+                    f"💬 الرسالة: {url}"
                 )
                 await context.bot.send_message(chat_id=self.admin_id, text=admin_text)
             except Exception as e:
