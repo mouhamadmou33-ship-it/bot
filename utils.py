@@ -38,6 +38,25 @@ def is_rate_limited(user_id: int) -> bool:
     return False
 
 
+# Logging user messages for admin panel
+import json
+from datetime import datetime
+
+
+def log_user_message(user_id: int, message: str):
+    """
+    Log a user message with timestamp to logs.jsonl file.
+    Each line is a JSON object: {"user_id": ..., "message": ..., "timestamp": ...}
+    """
+    log_entry = {
+        "user_id": user_id,
+        "message": message,
+        "timestamp": datetime.utcnow().isoformat(),
+    }
+    with open("logs.jsonl", "a", encoding="utf-8") as f:
+        f.write(json.dumps(log_entry, ensure_ascii=False) + "\n")
+
+
 def sanitize_filename(filename: str) -> str:
     """Sanitize filename to prevent path traversal."""
     return re.sub(r'[<>:"/\\|?*]', "_", filename)

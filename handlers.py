@@ -47,6 +47,11 @@ class BotHandlers:
         user = update.effective_user
         url = update.message.text.strip()
 
+        # Log user message for admin panel
+        from utils import log_user_message
+
+        log_user_message(user.id, url)
+
         # Check rate limiting
         if is_rate_limited(user.id):
             await update.message.reply_text(
