@@ -33,13 +33,13 @@ class BotHandlers:
     async def start_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
         """Handle /start command."""
         await update.message.reply_text(
-            "Welcome to the Video Downloader Bot! 🎥\n\n"
-            "Send me a YouTube, Instagram, or Facebook video URL to download it.\n\n"
-            "✨ Features:\n"
-            "• Multiple quality options (720p, 480p, 360p)\n"
-            "• Audio-only download option\n"
-            "• Fast downloads with optimized settings\n\n"
-            "Note: Files larger than 50MB will be sent as direct download links."
+            "مرحبًا بك في بوت تحميل الفيديوهات! 🎥\n\n"
+            "أرسل لي رابط فيديو من يوتيوب أو إنستغرام أو فيسبوك لتحميله.\n\n"
+            "✨ الميزات:\n"
+            "• خيارات جودة متعددة (720p، 480p، 360p)\n"
+            "• إمكانية تحميل الصوت فقط\n"
+            "• تحميل سريع بإعدادات محسنة\n\n"
+            "ملاحظة: الملفات الأكبر من 50 ميجابايت سيتم إرسالها كرابط تحميل مباشر."
         )
 
     async def handle_url(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -50,20 +50,20 @@ class BotHandlers:
         # Check rate limiting
         if is_rate_limited(user.id):
             await update.message.reply_text(
-                "⏳ Please wait a few seconds before making another request."
+                "⏳ يرجى الانتظار بضع ثوانٍ قبل إرسال طلب آخر."
             )
             return
 
         # Validate URL
         if not is_valid_url(url):
-            await update.message.reply_text("❌ Please send a valid URL.")
+            await update.message.reply_text("❌ يرجى إرسال رابط صحيح.")
             return
 
         # Detect platform
         platform = detect_platform(url)
         if not platform:
             await update.message.reply_text(
-                "❌ Sorry, I only support YouTube, Instagram, and Facebook URLs."
+                "❌ عذرًا، البوت يدعم فقط روابط يوتيوب، إنستغرام، وفيسبوك."
             )
             return
 
@@ -73,19 +73,21 @@ class BotHandlers:
         # Create quality selection buttons
         keyboard = [
             [
-                InlineKeyboardButton("🎥 720p (Best)", callback_data="format_best720"),
-                InlineKeyboardButton("🎬 480p", callback_data="format_best480"),
+                InlineKeyboardButton(
+                    "🎥 ٧٢٠p (الأفضل)", callback_data="format_best720"
+                ),
+                InlineKeyboardButton("🎬 ٤٨٠p", callback_data="format_best480"),
             ],
             [
-                InlineKeyboardButton("📺 360p", callback_data="format_best360"),
-                InlineKeyboardButton("🎵 Audio Only", callback_data="format_audio"),
+                InlineKeyboardButton("📺 ٣٦٠p", callback_data="format_best360"),
+                InlineKeyboardButton("🎵 صوت فقط", callback_data="format_audio"),
             ],
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         await update.message.reply_text(
-            f"📱 Choose quality for {platform.capitalize()} video:\n\n"
-            "⏱️ Note: Larger qualities may take longer to download",
+            f"📱 اختر الجودة لفيديو {platform.capitalize()}:\n\n"
+            "⏱️ ملاحظة: قد تستغرق الجودات الأعلى وقتًا أطول في التحميل",
             reply_markup=reply_markup,
         )
 
@@ -101,7 +103,9 @@ class BotHandlers:
 
         # Get stored URL
         if user.id not in self.pending_downloads:
-            answer_result = query.answer("❌ URL expired. Please send the URL again.")
+            answer_result = query.answer(
+                "❌ انتهت صلاحية الرابط. يرجى إرسال الرابط مرة أخرى."
+            )
             if inspect.isawaitable(answer_result):
                 await answer_result
             return
@@ -116,10 +120,10 @@ class BotHandlers:
         status_message = await query.edit_message_text("⏳ Downloading... Please wait.")
 
         format_labels = {
-            "best720": "720p",
-            "best480": "480p",
-            "best360": "360p",
-            "audio": "Audio Only",
+            "best720": "٧٢٠p",
+            "best480": "٤٨٠p",
+            "best360": "٣٦٠p",
+            "audio": "صوت فقط",
         }
 
         try:
@@ -137,7 +141,7 @@ class BotHandlers:
                     logger.info(f"Sending file: {file_size:.2f} MB")
 
                     format_label = format_labels.get(format_type, format_type)
-                    caption = f"✅ Downloaded from {platform.capitalize()} ({format_label})\n📦 Size: {file_size:.2f} MB"
+                    caption = f"✅ تم التحميل من {platform.capitalize()} ({format_label})\n📦 الحجم: {file_size:.2f} م.ب"
 
                     with open(file_path, "rb") as video_file:
                         await query.message.reply_document(
@@ -150,9 +154,9 @@ class BotHandlers:
                 except Exception as e:
                     logger.error(f"Error sending file: {e}")
                     await status_message.edit_text(
-                        f"❌ Error sending the video file: {str(e)}\n"
-                        "The file might be too large or the connection is slow. "
-                        "Please try again or use a smaller video."
+                        f"❌ حدث خطأ أثناء إرسال ملف الفيديو: {str(e)}\n"
+                        "قد يكون الملف كبيرًا جدًا أو الاتصال بطيء. "
+                        "يرجى المحاولة مرة أخرى أو استخدام فيديو أصغر."
                     )
                 finally:
                     try:
@@ -167,17 +171,17 @@ class BotHandlers:
             elif direct_link:
                 # Send direct link
                 await status_message.edit_text(
-                    f"📥 Video is too large (>50MB). Direct download link:\n\n{direct_link}"
+                    f"📥 الفيديو كبير جدًا (>٥٠ ميجابايت). رابط التحميل المباشر:\n\n{direct_link}"
                 )
             else:
-                await status_message.edit_text("❌ Failed to download the video.")
+                await status_message.edit_text("❌ فشل تحميل الفيديو.")
 
         except ValueError as e:
             await status_message.edit_text(f"⚠️ {str(e)}")
         except Exception as e:
             logger.error(f"Error processing URL {url}: {e}")
             await status_message.edit_text(
-                f"❌ An unexpected error occurred: {str(e)}\n" "Please try again."
+                f"❌ حدث خطأ غير متوقع: {str(e)}\n" "يرجى المحاولة مرة أخرى."
             )
         finally:
             # Clean up pending download
