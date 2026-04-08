@@ -1,3 +1,4 @@
+
 import inspect
 import logging
 import os
@@ -57,7 +58,16 @@ def save_allowed_users(users_set):
         json.dump(list(users_set), f)
 
 
+
 class BotHandlers:
+    async def stats_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        """عرض إحصائيات الاستخدام للمستخدم والإجمالي."""
+        user_id = update.effective_user.id
+        user_count = get_user_stats(user_id)
+        total_count = get_total_stats()
+        msg = f"📊 إحصائياتك:\nعدد التحميلات: {user_count}\n\nإجمالي التحميلات لكل المستخدمين: {total_count}"
+        await update.message.reply_text(msg)
+
     def __init__(
         self,
         admin_id: int,
@@ -256,6 +266,7 @@ class BotHandlers:
             "audio": "صوت فقط (m4a)",
             "mp3": "mp3 صوت فقط",
         }
+
 
         try:
             logger.info(f"User {user.id} requested {format_type} for {platform}")

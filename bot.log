@@ -70612,3 +70612,164 @@ Traceback (most recent call last):
 telegram.error.TimedOut: Timed out
 2026-04-07 10:32:23,928 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
 2026-04-07 10:32:23,940 - telegram.ext.Application - INFO - Application.stop() complete
+2026-04-08 18:07:06,001 - __main__ - INFO - Bot started successfully
+2026-04-08 18:07:06,988 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/getMe "HTTP/1.1 200 OK"
+2026-04-08 18:07:07,735 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/deleteWebhook "HTTP/1.1 200 OK"
+2026-04-08 18:07:07,739 - telegram.ext.Application - INFO - Application started
+2026-04-08 18:07:09,569 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 18:07:09,969 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 18:07:10,416 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 18:07:11,368 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 18:07:13,161 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 18:07:21,405 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 18:07:23,300 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-04-08 18:07:25,942 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/editMessageText "HTTP/1.1 200 OK"
+2026-04-08 18:07:30,024 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 18:07:30,435 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 18:07:36,911 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 18:07:37,439 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-04-08 18:07:37,622 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/editMessageText "HTTP/1.1 200 OK"
+2026-04-08 18:07:47,691 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 18:07:57,951 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 18:08:08,222 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 18:08:10,776 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 18:08:11,706 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/sendMessage "HTTP/1.1 403 Forbidden"
+2026-04-08 18:08:11,708 - handlers - ERROR - Failed to send user message to admin: Forbidden: bots can't send messages to bots
+2026-04-08 18:08:12,023 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 18:08:16,608 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 18:08:16,772 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/answerCallbackQuery "HTTP/1.1 200 OK"
+2026-04-08 18:08:16,993 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/editMessageText "HTTP/1.1 200 OK"
+2026-04-08 18:08:16,996 - handlers - INFO - User 1313713685 requested best1080 for facebook
+2026-04-08 18:08:46,194 - handlers - INFO - Sending file: 7.39 MB
+2026-04-08 18:08:46,385 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 18:08:57,201 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7955485658:AAGcq1WW1_C7UzS3P8JRKusyFUlRnPIChFE/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 18:09:10,977 - telegram.ext.Updater - ERROR - Error while calling `get_updates` one more time to mark all fetched updates as read: %s. Suppressing error to ensure graceful shutdown. When polling for updates is restarted, updates may be fetched again. Please adjust timeouts via `ApplicationBuilder` or the parameter `get_updates_request` of `Bot`.
+Traceback (most recent call last):
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\httpx\_transports\default.py", line 66, in map_httpcore_exceptions
+    yield
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\httpx\_transports\default.py", line 366, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+  File "C:\Users\M\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 155, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 268, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\httpx\_client.py", line 1530, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\httpx\_client.py", line 1617, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\httpx\_client.py", line 1645, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\httpx\_client.py", line 1682, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\httpx\_client.py", line 1719, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\httpx\_transports\default.py", line 365, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Users\M\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 155, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\httpx\_transports\default.py", line 83, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\telegram\ext\_updater.py", line 440, in _get_updates_cleanup
+    await self.bot.get_updates(
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 340, in _request_wrapper
+    raise exc
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 285, in do_request
+    raise TimedOut from err
+telegram.error.TimedOut: Timed out
+2026-04-08 18:09:11,255 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2026-04-08 18:09:17,933 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-1' coro=<main() done, defined at C:\Users\M\Desktop\MHD\main.py:26> exception=KeyboardInterrupt()>
+Traceback (most recent call last):
+  File "C:\Users\M\Desktop\MHD\main.py", line 61, in <module>
+    asyncio.run(main())
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\nest_asyncio.py", line 30, in run
+    return loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\nest_asyncio.py", line 92, in run_until_complete
+    self._run_once()
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\nest_asyncio.py", line 133, in _run_once
+    handle._run()
+  File "C:\Users\M\AppData\Local\Programs\Python\Python311\Lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\M\AppData\Local\Programs\Python\Python311\Lib\asyncio\tasks.py", line 267, in __step
+    result = coro.send(None)
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\main.py", line 56, in main
+    await application.run_polling(close_loop=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\telegram\ext\_application.py", line 818, in run_polling
+    return self.__run(
+           ^^^^^^^^^^^
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\telegram\ext\_application.py", line 1014, in __run
+    loop.run_until_complete(self.stop())
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\nest_asyncio.py", line 92, in run_until_complete
+    self._run_once()
+  File "C:\Users\M\Desktop\MHD\.venv\Lib\site-packages\nest_asyncio.py", line 115, in _run_once
+    event_list = self._selector.select(timeout)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\M\AppData\Local\Programs\Python\Python311\Lib\asyncio\windows_events.py", line 439, in select
+    self._poll(timeout)
+  File "C:\Users\M\AppData\Local\Programs\Python\Python311\Lib\asyncio\windows_events.py", line 808, in _poll
+    status = _overlapped.GetQueuedCompletionStatus(self._iocp, ms)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
