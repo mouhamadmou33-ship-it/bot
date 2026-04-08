@@ -13,7 +13,7 @@ def get_translations():
         },
         "lang_button": {
             "ar": "🇬🇧 English",
-            "en": "🇸🇦 العربية"
+            "en": "🇸🇾 العربية"
         },
         "lang_changed": {
             "ar": "تم تغيير اللغة إلى العربية.",
