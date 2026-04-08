@@ -322,12 +322,6 @@ class BotHandlers:
             else:
                 await status_message.edit_text("❌ فشل تحميل الفيديو.")
                 await context.bot.send_message(chat_id=user.id, text="❌ فشل تحميل الفيديو. تأكد من الرابط أو جرب لاحقًا.")
-    async def stats_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        user_id = update.effective_user.id
-        user_count = get_user_stats(user_id)
-        total = get_total_stats()
-        await update.message.reply_text(f"📊 إحصائيات التحميل:\n• عدد تحميلاتك: {user_count}\n• إجمالي التحميلات: {total}")
-
         except ValueError as e:
             # رسائل خطأ واضحة للمستخدم
             await status_message.edit_text(f"❌ {str(e)}")
