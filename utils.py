@@ -7,6 +7,9 @@ from typing import Optional
 rate_limit_store = {}
 RATE_LIMIT_SECONDS = 10  # Allow one request every 10 seconds per user
 
+def get_rate_limit_seconds():
+    return RATE_LIMIT_SECONDS
+
 
 def is_valid_url(url: str) -> bool:
     """Validate if the URL is a valid HTTP/HTTPS URL."""
@@ -25,6 +28,10 @@ def detect_platform(url: str) -> Optional[str]:
         return "instagram"
     elif "facebook.com" in url or "fb.com" in url:
         return "facebook"
+    elif "tiktok.com" in url:
+        return "tiktok"
+    elif "twitter.com" in url or "x.com" in url:
+        return "twitter"
     return None
 
 
